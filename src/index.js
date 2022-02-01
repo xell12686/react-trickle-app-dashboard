@@ -6,23 +6,15 @@
 // const rootElement = document.getElementById("root");
 // ReactDOM.render(<App />, rootElement);
 
-// const { checkInventory } = require('./library.js');
-    // refactor above line to es6 syntax
-import checkInventory from "./library.js";
 
-console.clear();
-console.log('init app...');
-
-
-
-const order = [['sunglasses', 1], ['bags', 2]];
-
-// Write your code below:
-const handleSuccess = (resolvedVal) => {
-	console.log(resolvedVal);
-}
-const handleFailure = (failedVal) => {
-	console.log(failedVal);
-}
-
-checkInventory(order).then(handleSuccess, handleFailure);
+import domFunctions from './dom-functions.js';
+ 
+const { toggleHiddenElement, changeToFunkyColor } = domFunctions;
+ 
+const buttonElement = document.getElementById('secret-button');
+const pElement = document.getElementById('secret-p');
+ 
+buttonElement.addEventListener('click', () => {
+  toggleHiddenElement(pElement);
+  changeToFunkyColor(buttonElement);
+});
